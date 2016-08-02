@@ -1,0 +1,21 @@
+{
+  "name": "company",
+  "authors": [
+    "Sergo kupreishvili"
+  ],
+  "description": "company template",
+  "main": "index.html",
+  "keywords": [
+    "company",
+    "blog",
+    "personal",
+    "portfolio"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "uikit": "^2.26.4"
+  }
+}
