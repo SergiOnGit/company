@@ -1,2 +1,2 @@
-http-server
-assets/bower_components
+node_modules
+app/assets/bower_components
