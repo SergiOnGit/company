@@ -37,36 +37,33 @@
 		var itemBackColor = $(this).css('background-color');
 		// add hashtag
 		history.pushState(null, null, "#" + dataPage);
+		itemsModal.show();
 		// load page dynamically
 		itemsModalContent.load("pages/" + dataPage + ".html", function() {
 			// opened page variables
 			var page = $('#page');
-			var gridElem = $('#page-grid');
-			// add current page class to section
-			page.addClass(dataPage);
 			// open styles
-			itemsModal.fadeIn(0, function() {
-				itemsModalWrap.css('background-color', itemBackColor).addClass('open');
+			page.addClass(dataPage);
+			itemContentModalClose.addClass('open');
+			itemsModalWrap.css('background-color', itemBackColor).addClass('open').fadeIn(400).scrollTop(0);
+			setTimeout(function() {
 				itemsModalContent.addClass('open');
-				itemContentModalClose.addClass('open');
-			});
-			// init uikit dynamic grid
-			var grid = UIkit.grid(gridElem, {
-				animation: false
-			});
+			}, 300);
 		});
-	});
-	// close
-	itemContentModalClose.click(function(event) {
-		// show body overflow
-		body.removeClass('open');
-		// remove hashtag
-		history.pushState(null, null, " ");
-		// remove open styles
-		itemsModalWrap.removeClass('open');
-		itemsModalContent.removeClass('open');
-		itemContentModalClose.removeClass('open');
-		itemsModal.fadeOut(250);
-		itemsModalContent.empty();
+		// close
+		itemContentModalClose.click(function(event) {
+			// show body overflow
+			body.removeClass('open');
+			// remove hashtag
+			history.pushState(null, null, " ");
+			// remove open styles
+			itemsModalWrap.removeClass('open').fadeOut(400);
+			itemsModalContent.removeClass('open');
+			itemContentModalClose.removeClass('open');
+			setTimeout(function() {
+				itemsModal.hide();
+				itemsModalContent.empty();
+			}, 400);
+		});
 	});
 }(jQuery));
