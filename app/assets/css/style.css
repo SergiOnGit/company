@@ -56,7 +56,7 @@ body {
 body.open {
     overflow: hidden;
 }
-#magic-loader {
+.magic-loader {
     position: fixed;
     top: 0;
     width: 100%;
@@ -64,7 +64,7 @@ body.open {
     background-color: #fff;
     z-index: 10001;
 }
-#pages-wrap {
+.pages-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -77,7 +77,7 @@ body.open {
     padding: 0 10px;
     position: relative;
 }
-#pages-grid {
+.pages-grid {
     width: 100%;
 }
 /* ITEM BG COLORS */
@@ -165,7 +165,7 @@ body.open {
 	background: #fff;
 }
 /* PAGE CONTENT MODAL */
-#page-modal {
+.page-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -174,15 +174,14 @@ body.open {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     z-index: 1;
 }
-#page-modal-wrap {
-    display: none;
-    height: 100%;
-    overflow: auto;
+.page-modal.open-news {
+    overflow: hidden;
 }
-#page-modal-content {
+.page-modal-content {
+    position: relative;
     margin: 0 auto;
     max-width: 1300px;
     padding: 50px;
@@ -192,12 +191,12 @@ body.open {
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
-#page-modal-content.open {
+.page-modal-content.open {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
 }
-#page-modal-close {
+.page-modal-close {
     position: fixed;
     z-index: 1;
     top: 20px;
@@ -213,25 +212,25 @@ body.open {
     -webkit-transition: 0.6s;
     transition: 0.6s;
 }
-#page-modal-close:hover {
+.page-modal-close:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
-#page-modal-close.open {
+.page-modal-close.open {
     opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1);
 }
-#page-modal-heading-box {
+.page-modal-heading-box {
     margin: 50px 15px 70px;
 }
-#page-modal-heading {
+.page-modal-heading {
     text-align: center;
     text-transform: capitalize;
     margin-bottom: 20px;
     font-size: 28px;
     font-family: 'Oswald', sans-serif;
 }
-#page-modal-heading-desc {
+.page-modal-heading-desc {
     text-align: center;
     font-size: 16px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -349,6 +348,39 @@ body.open {
 .news-item-desc {
     font-size: 16px;
     line-height: 1.5;
+}
+/* news item modal */
+.news-item-modal-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    z-index: 2;
+    background: rgb(56, 109, 99);
+}
+.news-item-modal-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.news-item-modal-content .news-item {
+    margin-top: 30px;
+}
+.news-item-modal-close {
+    opacity: 1;
+    -webkit-transform: scale(1);
+        transform: scale(1);
+}
+.news-item-more {
+    margin-top: 10px;
+    padding: 4px 8px;
+    color: #fff;
+    background: #000;
+    text-transform: capitalize;
 }
 /* CLIENTS PAGE */
 .clients-item {
@@ -578,7 +610,7 @@ body.open {
 	html, body {
 	    height: auto;
 	}
-    #pages-wrap {
+    .pages-wrap {
         max-width: 700px;
         padding: 20px 10px;
     }
@@ -593,10 +625,10 @@ body.open {
     }
 }
 @media (max-width: 480px) {
-    #page-modal-content {
+    .page-modal-content {
         padding: 15px;
     }
-    #pages-wrap {
+    .pages-wrap {
         padding: 10px;
     }
     .portfolio-item-desc, .team-item-dets-box {

@@ -1,13 +1,31 @@
 (function($) {
 	// define variables
-	var documentHash = document.location.hash;
 	var body = $('body');
 	var mainItem = $('.page-block');
 	var sliderBox = $('.slider-box');
 	var itemsModal = $('#page-modal');
-	var itemsModalWrap = $('#page-modal-wrap');
 	var itemContentModalClose = $('#page-modal-close');
 	var itemsModalContent = $('#page-modal-content');
+	// some functions
+	function pageParameters(url) {
+		segments = url.split('/');
+		pageName = segments[1];
+		newsId = segments[2];
+
+		return [pageName, newsId];
+	}
+	function newsItemModal(newsId, action) {
+		var newsItemModalBox = $('.news-item-modal-box');
+		if (action === true && newsId != false) {
+			itemsModal.addClass('open-news');
+			document.location.hash = '/news/' + newsId;
+			newsItemModalBox.fadeIn('normal');
+		} else {
+			itemsModal.removeClass('open-news');
+			document.location.hash = '/news';
+			newsItemModalBox.fadeOut('normal');
+		}
+	}
 	// because some browsers render fonts differently we need to define slider height for good look
 	$(window).resize(function(event) {
 		var windowWidth = $(window).width();
@@ -21,9 +39,10 @@
 	}).resize();
 	// ITEMS CONTENT MODAL
 	// open modal with hashtag
-	$(window).on("load", function(){
+	$(window).on('load', function() {
+		pageParameters(document.location.hash);
 		mainItem.each(function(index, el) {
-			if (documentHash == '#' + $(this).attr('data-page')) {
+			if (pageName == $(this).attr('data-page')) {
 				$(this).trigger('click');
 			}
 		});
@@ -35,29 +54,50 @@
 		// get clicked page block info
 		var dataPage = $(this).attr('data-page');
 		var itemBackColor = $(this).css('background-color');
-		// add hashtag
-		history.pushState(null, null, "#" + dataPage);
-		itemsModal.show();
+		// open styles
+		itemContentModalClose.addClass('open');
+		itemsModal.css('background-color', itemBackColor).addClass('open').fadeIn(400).scrollTop(0);
 		// load page dynamically
-		itemsModalContent.load("pages/" + dataPage + ".html", function() {
+		itemsModalContent.load('pages/' + dataPage + '.html', function() {
 			// opened page variables
 			var page = $('#page');
-			// open styles
+			var newsItemMore = $('.news-item-more');
+			var newsItemModalClose = $('.news-item-modal-close');
+			// add hashtag
+			pageParameters(document.location.hash);
+			if (pageName == 'news' && newsId != undefined) {
+				$('.news-item-more').each(function() {
+					if($(this).attr('news-id') == newsId) {
+						setTimeout(function() {
+							newsItemModal(newsId, true);
+						}, 1000);
+					}
+				});
+			} else if (document.location.hash == '') {
+				document.location.hash = '/' + dataPage;
+			}
 			page.addClass(dataPage);
-			itemContentModalClose.addClass('open');
-			itemsModalWrap.css('background-color', itemBackColor).addClass('open').fadeIn(400).scrollTop(0);
 			setTimeout(function() {
 				itemsModalContent.addClass('open');
 			}, 300);
+			// news page news opening
+			newsItemMore.click(function(event) {
+				var newsId = $(this).attr('news-id');
+				newsItemModal(newsId, true);
+			});
+			newsItemModalClose.click(function(event) {
+				newsItemModal(false, true);
+			});
 		});
 		// close
 		itemContentModalClose.click(function(event) {
 			// show body overflow
 			body.removeClass('open');
 			// remove hashtag
-			history.pushState(null, null, " ");
+			document.location.hash = '';
+			pageParameters(document.location.hash);
 			// remove open styles
-			itemsModalWrap.removeClass('open').fadeOut(400);
+			itemsModal.removeClass('open').fadeOut(400);
 			itemsModalContent.removeClass('open');
 			itemContentModalClose.removeClass('open');
 			setTimeout(function() {
