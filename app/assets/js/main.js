@@ -16,21 +16,24 @@
 	}
 	function newsItemModal(newsId, action) {
 		var newsItemModalBox = $('.news-item-modal-box');
+		var newsItemModalContent = $('#news-item-modal-content');
 		if (action === true && newsId != false) {
 			itemsModal.addClass('open-news');
 			document.location.hash = '/news/' + newsId;
-			newsItemModalBox.fadeIn('normal');
+			newsItemModalBox.fadeIn('normal').scrollTop(0);
+			newsItemModalContent.addClass('open');
 		} else {
 			itemsModal.removeClass('open-news');
 			document.location.hash = '/news';
 			newsItemModalBox.fadeOut('normal');
+			newsItemModalContent.removeClass('open');
 		}
 	}
 	// because some browsers render fonts differently we need to define slider height for good look
 	$(window).resize(function(event) {
 		var windowWidth = $(window).width();
 		if (windowWidth > 959) {
-			var mainItemHeight = $('.page-block').outerHeight();
+			var mainItemHeight = mainItem.outerHeight();
 
 			sliderBox.height(mainItemHeight * 2 + 20);
 		} else {

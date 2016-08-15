@@ -143,6 +143,7 @@ body.open {
 }
 .uk-slidenav-position {
 	max-height: 100%;
+    height: 100%;
 }
 .uk-slidenav-position .uk-slidenav {
 	color: #fff;
@@ -166,6 +167,19 @@ body.open {
 }
 .uk-dotnav>.uk-active>* {
 	background: #fff;
+}
+.slider-caption-title {
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: 'Oswald', sans-serif;
+}
+.slider-caption-desc {
+    margin: 5px;
+}
+.slider-caption-more {
+    margin-top: 5px;
+    background: #000;
+    font-size: 17px;
 }
 /* PAGE CONTENT MODAL */
 .page-modal {
@@ -369,7 +383,7 @@ body.open {
 /* news item modal */
 .news-item-modal-box {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -383,6 +397,16 @@ body.open {
 .news-item-modal-content {
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0;
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.news-item-modal-content.open {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
 }
 .news-item-modal-content .news-item {
     margin-top: 30px;
@@ -392,6 +416,29 @@ body.open {
     opacity: 1;
     -webkit-transform: scale(1);
         transform: scale(1);
+}
+/* pagination */
+.paging-box {
+    margin-top: 15px;
+}
+.paging-box .uk-pagination>li>a, .uk-pagination>li>span {
+    min-width: 20px;
+    padding: 5px 6px;
+}
+.paging-box .uk-pagination>.uk-active>span {
+    background: #ffffff;
+    color: #000;
+    font-weight: bold;
+}
+.paging-box .uk-pagination>li>a {
+    background: #000;
+    color: #fff;
+}
+.paging-box .uk-pagination>li>a:focus, .paging-box .uk-pagination>li>a:hover {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    outline: 0;
 }
 /* CLIENTS PAGE */
 .clients-item {
