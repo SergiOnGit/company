@@ -1,11 +1,11 @@
 (function($) {
 	// DEFINE VARIABLES
-	var body = $('body');
-	var mainItem = $('.page-block');
-	var sliderBox = $('.slider-box');
-	var itemsModal = $('#page-modal');
-	var itemContentModalClose = $('#page-modal-close');
-	var itemsModalContent = $('#page-modal-content');
+	var body = $('body'),
+		mainItem = $('.page-block'),
+		sliderBox = $('.slider-box'),
+		itemsModal = $('#page-modal'),
+		itemContentModalClose = $('#page-modal-close'),
+		itemsModalContent = $('#page-modal-content');
 	// BECAUSE SOME BROWSERS RENDER FONTS DIFFERENTLY, SO WE NEED TO DEFINE SLIDER HEIGHT FOR GOOD LOOK
 	$(window).resize(function(event) {
 		var windowWidth = $(window).width();
@@ -27,8 +27,8 @@
 	}
 	// NEWS MODAL
 	function newsItemModal(newsId, open, slider) {
-		var newsItemModalBox = $('.news-item-modal-box');
-		var newsItemModalContent = $('#news-item-modal-content');
+		var newsItemModalBox = $('.news-item-modal-box'),
+			newsItemModalContent = $('#news-item-modal-content');
 		if (open === true && newsId != false && slider != true) {
 			itemsModal.addClass('open-news');
 			if(history.pushState) {
@@ -71,17 +71,17 @@
 		// hide body overflow
 		body.addClass('open');
 		// get clicked page block info
-		var dataPage = $(this).attr('id');
-		var itemBackColor = $(this).css('background-color');
+		var dataPage = $(this).attr('id'),
+			itemBackColor = $(this).css('background-color');
 		// open styles
 		itemContentModalClose.addClass('open');
 		itemsModal.css('background-color', itemBackColor).addClass('open').fadeIn(400).scrollTop(0);
 		// load page dynamically
 		itemsModalContent.load('pages/' + dataPage + '.html', function() {
 			// opened page variables
-			var page = $('#page');
-			var newsItemMore = $('.news-item-more');
-			var newsItemModalClose = $('#news-item-modal-close');
+			var page = $('#page'),
+				newsItemMore = $('.news-item-more'),
+				newsItemModalClose = $('#news-item-modal-close');
 			// add hashtag
 			pageParameters(document.location.hash);
 			console.log(document.location.hash);

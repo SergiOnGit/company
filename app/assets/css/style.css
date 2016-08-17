@@ -261,9 +261,11 @@ body.open {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 /* FEATURE PAGE */
+.feature-grid {
+    margin-bottom: 60px;
+}
 .feature-item {
     padding: 0 15px;
-    margin-bottom: 60px !important;
     text-align: center;
 }
 .feature-item-icon {
@@ -299,9 +301,12 @@ body.open {
     color: #000;
 }
 /* PORTFOLIO PAGE */
+.portfolio-grid {
+    margin-bottom: 30px;
+}
 .portfolio-item {
     position: relative;
-    margin: 0 15px 30px !important;
+    margin: 0 15px;
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -348,9 +353,11 @@ body.open {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 /* NEWS PAGE */
+.news-grid {
+    margin-bottom: 30px;
+}
 .news-item {
     padding: 0 15px;
-    margin-bottom: 30px !important;
 }
 .news-item-image {
     width: 100%;
@@ -412,11 +419,28 @@ body.open {
             transform: translateY(0);
 }
 .news-item-modal-content .news-item {
-    margin-top: 30px;
+    margin: 30px 0;
     padding: 0 30px;
 }
 .news-item-modal-content .news-item-image {
     opacity: 1;
+}
+.news-item-modal-social-list {
+    display: inline-block;
+    margin: 50px 5px 25px;
+}
+.news-item-modal-social-icon-btn {
+    font-size: 35px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #ddd;
+    color: #000;
+    box-shadow: 2px 2px 5px 0 rgb(0, 0, 0);
+    transition: 0.2s;
+}
+.news-item-modal-social-icon-btn:hover {
+    background: transparent;
+    color: #fff;
 }
 .news-item-modal-close {
     opacity: 1;
@@ -447,9 +471,11 @@ body.open {
     outline: 0;
 }
 /* CLIENTS PAGE */
+.clients-grid {
+    margin-bottom: 30px;
+}
 .clients-item {
     padding: 0 15px;
-    margin-bottom: 30px !important;
 }
 .clients-item-image {
     opacity: 0.7;
@@ -475,9 +501,11 @@ body.open {
     border-radius: 3px;
 }
 /* SERVICES PAGE */
+.services-grid {
+    margin-bottom: 60px;
+}
 .services-item {
     padding: 0 15px;
-    margin-bottom: 60px !important;
 }
 .services-item-icon-box {
     margin-bottom: 20px;
@@ -514,9 +542,11 @@ body.open {
     color: #1f4c74;
 }
 /* TEAM PAGE */
+.team-grid {
+    margin-bottom: 60px;
+}
 .team-item {
     padding: 0 15px;
-    margin-bottom: 60px !important;
 }
 .team-item-image {
     text-align: center;
@@ -698,7 +728,14 @@ body.open {
         display: none;
     }
     .page-wrap {
-        padding: 15px;
+        padding: 15px 15px 60px;
+    }
+    .feature-grid:last-of-type,
+    .portfolio-grid:last-of-type,
+    .services-grid:last-of-type,
+    .clients-grid:last-of-type,
+    .team-grid:last-of-type {
+        margin-bottom: 0;
     }
     .portfolio-item-desc, .team-item-dets-box {
         opacity: 1;
