@@ -37,18 +37,22 @@
 
 	<!--  JQUERY JS -->
 	<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-	<!-- UIKIT JS -->
-	<script src="assets/bower_components/uikit/js/uikit.min.js"></script>
-	<script src="assets/bower_components/uikit/js/components/slideshow.min.js"></script>
-	<script src="assets/bower_components/uikit/js/components/slideshow-fx.min.js"></script>
-	<script src="assets/bower_components/uikit/js/components/grid.min.js"></script>
-	<script src="assets/bower_components/uikit/js/components/pagination.min.js"></script>
-
 	<script>
 	$(window).bind("load", function() {
 	    $("#magic-loader").fadeOut("fast");
 	});
 	</script>
+
+	<!-- UIKIT JS -->
+	<script async src="assets/bower_components/uikit/js/uikit.min.js"></script>
+	<script async src="assets/bower_components/uikit/js/components/slideshow.min.js"></script>
+	<script async src="assets/bower_components/uikit/js/components/slideshow-fx.min.js"></script>
+	<script async src="assets/bower_components/uikit/js/components/grid.min.js"></script>
+	<script async src="assets/bower_components/uikit/js/components/pagination.min.js"></script>
+
+	<!-- CUSTOM JS -->
+	<script async src="assets/js/main.js"></script>
+
 </head>
 <body>
 
@@ -185,9 +189,6 @@
 	<button type="button" id="page-modal-close" class="page-modal-close"></button>
 	<div id="page-modal-content" class="page-modal-content"></div>
 </div>
-
-<!-- CUSTOM JS -->
-<script src="assets/js/main.js"></script>
 
 </body>
 </html>
