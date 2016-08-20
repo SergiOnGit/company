@@ -1,1 +1,1 @@
-Company template created with uikit framework and JQuery
+Company template created with UIkit and JQuery
