@@ -38,6 +38,9 @@ figure {
 }
 ::-webkit-scrollbar-thumb { background: #333; }
 ::-webkit-scrollbar-thumb:window-inactive { background: #333; }
+html {
+    background: transparent;
+}
 body {
     min-width: 300px;
     min-height: 100%;
